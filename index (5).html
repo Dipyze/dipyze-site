@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dipyze - Gagnez 3x plus de temps avec votre assistant IA personnalisé</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a6bff;
+            --secondary: #ff6b4a;
+            --dark: #2a2a2a;
+            --light: #f5f7fa;
+            --gray: #9aa3af;
+            --success: #2ecc71;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header styles */
+        header {
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(74, 107, 255, 0.25);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(74, 107, 255, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            box-shadow: 0 4px 12px rgba(255, 107, 74, 0.25);
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 0 8px 20px rgba(255, 107, 74, 0.4);
+        }
+
+        .btn-cta {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(74, 107, 255, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(74, 107, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(74, 107, 255, 0);
+            }
+        }
+        
+        /* Hero section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7ff 0%, #f0f4ff 100%);
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--dark);
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero-badge {
+            background: white;
+            border-radius: 50px;
+            padding: 8px 16px;
+            font-weight: 600;
+            color: var(--primary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+                
+        /* Video demo section */
+        .video-demo {
+            padding: 60px 0;
+            text-align: center;
+            background: white;
+        }
+        
+        .video-demo h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .video-container iframe {
+            display: block;
+            border-radius: 12px;
+        }
+        
+        /* Features section */
+        .intro {
+            padding: 80px 0;
+            text-align: center;
+            background: white;
+        }
+        
+        .intro h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .intro p {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 18px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+        }
+        
+        /* Benefits section */
+        .benefits {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7ff 0%, #f0f4ff 100%);
+        }
+        
+        .benefits h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+        
+        .benefits-list {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+        
+        .benefits-list ul {
+            list-style: none;
+        }
+        
+        .benefits-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .benefits-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .benefits-list li::before {
+            content: '✓';
+            margin-right: 15px;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .testimonials h2 {
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+        
+        .testimonials-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .testimonials-slider {
+            display: flex;
+            gap: 30px;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial {
+            min-width: 100%;
+            background: var(--light);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .client-info img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .client-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .slider-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+        
+        /* Free offer section */
+        .free-offer {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #4a6bff 0%, #6a4bff 100%);
+            color: white;
+        }
+        
+        .free-offer h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .free-offer p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 20px;
+            opacity: 0.9;
+        }
+        
+        .free-offer .btn {
+            background: white;
+            color: var(--primary);
+            font-size: 18px;
+            padding: 15px 30px;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+            background: white;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--gray);
+            font-size: 18px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Contact section styles */
+        .contact-section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .contact-info-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .contact-form-cta {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .contact-form-cta h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .contact-form-cta p {
+            margin-bottom: 25px;
+            color: var(--gray);
+        }
+        
+        .contact-form-cta .btn {
+            padding: 12px 30px;
+            font-size: 16px;
+        }
+        
+        @media (max-width: 992px) {
+            .contact-info-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-methods {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            
+            .social-links {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .contact-section h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+            font-size: 18px;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            background: var(--light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary);
+        }
+        
+        .contact-method-details h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .contact-method-details p {
+            color: var(--gray);
+            margin-bottom: 0;
+        }
+        
+        .social-links h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--primary);
+            font-size: 24px;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-3px);
+            color: var(--secondary);
+        }
+        
+        /* Form styles */
+        .contact-form {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .contact-form h3 {
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 107, 255, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .form-check input {
+            margin-top: 5px;
+        }
+        
+        .form-check label {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+        }
+        
+        .success-message {
+            background: rgba(46, 204, 113, 0.1);
+            border: 1px solid var(--success);
+            color: var(--success);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            text-align: center;
+        }
+        
+        /* Apply animations */
+        .hero h1, .hero p, .hero .btn, .hero-badges {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .hero p {
+            animation-delay: 0.2s;
+        }
+        
+        .hero-badges {
+            animation-delay: 0.3s;
+        }
+        
+        .hero .btn {
+            animation-delay: 0.4s;
+        }
+        
+        .feature-card {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .feature-card:nth-child(1) { animation-delay: 0.1s; }
+        .feature-card:nth-child(2) { animation-delay: 0.2s; }
+        .feature-card:nth-child(3) { animation-delay: 0.3s; }
+        .feature-card:nth-child(4) { animation-delay: 0.4s; }
+        .feature-card:nth-child(5) { animation-delay: 0.5s; }
+        .feature-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        /* Sticky button for mobile */
+        .btn-sticky {
+            display: none;
+        }
+        
+        /* Mobile menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--dark);
+            margin: 5px 0;
+            transition: var(--transition);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                z-index: 10;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .btn-sticky {
+                display: block;
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                right: 20px;
+                z-index: 999;
+                text-align: center;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .contact-info {
+                order: 2;
+            }
+            
+            .contact-form {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Dipyze</div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="nav-links">
+                    <a href="#features">Fonctionnalités</a>
+                    <a href="#benefits">Avantages</a>
+                    <a href="#testimonials">Témoignages</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <a href="https://calendar.app.google/D24c2dLtpTD1Htv79" target="_blank" class="btn">Prendre rendez-vous</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badges">
+                <div class="hero-badge">Remplace un employé complet</div>
+                <div class="hero-badge">Automatisation sur mesure</div>
+                <div class="hero-badge">Activé en 24h</div>
+            </div>
+            <h1>Votre assistant IA 24h/24 pour gérer vos clients, vos factures et vos rendez-vous</h1>
+            <p>Dipyze se connecte à vos outils actuels et automatise vos tâches administratives les plus chronophages. Concentrez-vous sur ce qui compte réellement.</p>
+            <a href="https://calendar.app.google/D24c2dLtpTD1Htv79" target="_blank" class="btn btn-cta">Découvrir Dipyze en 15min</a>
+        </div>
+    </section>
+
+    <section class="video-demo">
+        <div class="container">
+            <h2>Voyez Dipyze en action en 2 minutes</h2>
+            <div class="video-container">
+                <div style="padding:56.25% 0 0 0;position:relative;">
+                    <iframe src="https://player.vimeo.com/video/1085013544?h=0140ab2e54&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                            frameborder="0" 
+                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+                            style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                            title="Dipyze">
+                    </iframe>
+                </div>
+                <script src="https://player.vimeo.com/api/player.js"></script>
+            </div>
+        </div>
+    </section>
+
+    <section class="intro" id="features">
+        <div class="container">
+            <h2>Découvrez tout ce que Dipyze peut automatiser pour vous</h2>
+            <p>Chaque entreprise est unique. Voici comment nous aidons nos clients à gagner du temps et à se concentrer sur ce qui compte :</p>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Suivi des clients & CRM</h3>
+                    <p>Dipyze suit chaque prospect, met à jour votre base, et vous alerte en cas d'action à prendre.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Gestion de documents</h3>
+                    <p>Classement automatique, extraction d'informations et suivi des délais pour tous vos documents importants.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Facturation & Finance</h3>
+                    <p>Émission de factures, relances de paiement et alertes pour vous aider à gérer votre trésorerie.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <h3>Communication client</h3>
+                    <p>Réponses automatiques, suivi des demandes et personnalisation des messages pour chaque client.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Planning & Rendez-vous</h3>
+                    <p>Organisation intelligente de votre agenda, rappels et confirmations automatiques.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Intégrations personnalisées</h3>
+                    <p>Connection à tous vos outils existants pour une automatisation sur mesure de vos processus.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <h2>Pourquoi nos clients adorent Dipyze</h2>
+            <div class="benefits-list">
+                <ul>
+                    <li>Remplace un employé administratif à temps plein pour une fraction du coût</li>
+                    <li>Réduisez vos oublis et retards de suivi client de 95%</li>
+                    <li>Augmentez vos relances de paiement de 38% sans effort supplémentaire</li>
+                    <li>Réduisez votre stress lié à la gestion administrative</li>
+                    <li>Compatible avec tous vos outils actuels : Gmail, Drive, Notion, Slack...</li>
+                    <li>Mise en place rapide et formation incluse</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2>Ils ont déjà adopté Dipyze</h2>
+            <div class="testimonials-container">
+                <div class="testimonials-slider">
+                    <div class="testimonial">
+                        <p>"Depuis que j'utilise Dipyze, c'est comme avoir un employé administratif dédié. C'est comme avoir une assistante virtuelle qui ne dort jamais et qui connaît parfaitement mon business."</p>
+                        <div class="client-info">
+                            <img src="/api/placeholder/60/60" alt="Sophie Martin">
+                            <div>
+                                <h4>Sophie Martin</h4>
+                                <p>Consultante indépendante</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <p>"Je n'ai plus à me soucier des rappels clients ou des factures impayées. Dipyze s'occupe de tout et me signale uniquement ce qui nécessite mon attention. Un vrai game-changer pour ma petite équipe."</p>
+                        <div class="client-info">
+                            <img src="/api/placeholder/60/60" alt="Thomas Dubois">
+                            <div>
+                                <h4>Thomas Dubois</h4>
+                                <p>Agence de design</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <p>"Au début j'étais sceptique, mais Dipyze comprend vraiment mon business. Leur solution rédige des emails que je n'aurais pas fait mieux moi-même et organise mon travail de façon intelligente. Je ne reviendrai pas en arrière !"</p>
+                        <div class="client-info">
+                            <img src="/api/placeholder/60/60" alt="Laure Petit">
+                            <div>
+                                <h4>Laure Petit</h4>
+                                <p>Cabinet d'architecte</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <div class="slider-dot active" data-index="0"></div>
+                    <div class="slider-dot" data-index="1"></div>
+                    <div class="slider-dot" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="free-offer">
+        <div class="container">
+            <h2>🔥 Audit gratuit de vos automatisations</h2>
+            <p>Réservez 15 minutes et découvrez comment Dipyze peut remplacer un employé administratif complet pour votre entreprise.</p>
+            <a href="https://calendar.app.google/D24c2dLtpTD1Htv79" target="_blank" class="btn">Je réserve mon audit offert</a>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Prêt à déléguer à l'IA ?</h2>
+            <p>Vous utilisez déjà Slack, Notion, Gmail ou Google Drive ? Dipyze s'y connecte, s'adapte, et travaille pour vous 24h/24 comme un employé administratif dédié.</p>
+            <a href="https://calendar.app.google/D24c2dLtpTD1Htv79" target="_blank" class="btn">Réserver une démo</a>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-form-cta">
+                <h3>Remplissez notre formulaire de contact</h3>
+                <p>Pour toute demande d'information, de démonstration ou un devis personnalisé, nous vous invitons à compléter notre formulaire en ligne.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfnhv3fKHWkhLK4-WAFXF3Gcf6LGCJWpjQh1Ze28okUzrzI4A/viewform" target="_blank" class="btn btn-cta">Remplir le formulaire</a>
+            </div>
+            
+            <h2>Contactez-nous</h2>
+            <p class="section-intro">Une question ? Un besoin spécifique ? Notre équipe est là pour vous répondre rapidement.</p>
+            
+            <div class="contact-info-container">
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="contact-method-details">
+                            <h3>Email</h3>
+                            <p>Dipyze@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.62 10.79C8.06 13.62 10.38 15.93 13.21 17.38L15.41 15.18C15.68 14.91 16.08 14.82 16.43 14.94C17.55 15.31 18.76 15.51 20 15.51C20.55 15.51 21 15.96 21 16.51V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="contact-method-details">
+                            <h3>Téléphone</h3>
+                            <p>+33 7 81 28 15 84</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="LinkedIn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM9 17H6.5V10H9V17ZM7.75 8.5C6.84 8.5 6.1 7.76 6.1 6.85C6.1 5.94 6.84 5.2 7.75 5.2C8.66 5.2 9.4 5.94 9.4 6.85C9.4 7.76 8.66 8.5 7.75 8.5ZM18 17H15.5V13.25C15.5 12.31 15.47 11.1 14.17 11.1C12.85 11.1 12.65 12.11 12.65 13.16V17H10.15V10H12.55V11.07H12.58C12.94 10.44 13.77 9.78 15.03 9.78C17.53 9.78 18 11.44 18 13.59V17Z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">À propos</a>
+                <a href="#">Contact</a>
+                <a href="#">Mentions légales</a>
+            </div>
+            <p>© 2025 Dipyze</p>
+        </div>
+    </footer>
+
+    <!-- Sticky button for mobile -->
+    <a href="https://calendar.app.google/D24c2dLtpTD1Htv79" target="_blank" class="btn btn-sticky btn-cta">Réserver ma démo gratuite</a>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Feature animation for intersection observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.feature-card').forEach(card => {
+            observer.observe(card);
+        });
+        
+        // Testimonial carousel
+        const testimonialSlider = document.querySelector('.testimonials-slider');
+        const sliderDots = document.querySelectorAll('.slider-dot');
+        let currentIndex = 0;
+        
+        function rotateTestimonials() {
+            currentIndex = (currentIndex + 1) % 3;
+            updateSlider();
+        }
+        
+        function updateSlider() {
+            testimonialSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Update active dot
+            sliderDots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        // Set up click handlers for dots
+        sliderDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider();
+                // Reset timer when manually clicking
+                clearInterval(sliderInterval);
+                sliderInterval = setInterval(rotateTestimonials, 5000);
+            });
+        });
+        
+        // Start auto-rotation
+        let sliderInterval = setInterval(rotateTestimonials, 5000);
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Adjust scroll position to account for fixed header
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Form submission handler
+        function handleFormSubmit(event) {
+            // Ne pas empêcher l'envoi du formulaire à Google Forms
+            
+            // Get form values pour l'affichage du message de succès local
+            const name = document.getElementById('name')?.value;
+            const email = document.getElementById('email')?.value;
+            const subject = document.getElementById('subject')?.value;
+            const message = document.getElementById('message')?.value;
+            
+            // Afficher le message de succès
+            const successMessage = document.getElementById('success-message');
+            if (successMessage) {
+                successMessage.style.display = 'block';
+                
+                // Masquer le message de succès après 5 secondes
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+            
+            // Permet l'envoi normal du formulaire
+            return true;
+        }
+    </script>
